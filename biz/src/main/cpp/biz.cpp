@@ -2,7 +2,7 @@
 #include <string>
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_linshujie_nativehook_MainActivity_stringFromJNI(
+Java_com_linshujie_biz_NativeLib_stringFromJNI(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";

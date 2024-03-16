@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 3.22.1)
 # Since this is the top level CMakeLists.txt, the project name is also accessible
 # with ${CMAKE_PROJECT_NAME} (both CMake variables are in-sync within the top level
 # build script scope).
-project("nativehook")
+project("xhookorigin")
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -26,7 +26,24 @@ project("nativehook")
 # used in the AndroidManifest.xml file.
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
-        native-lib.cpp)
+        xhookorigin.cpp
+
+        src/queue.h
+        src/tree.h/
+        src/xh_core.c
+        src/xh_core.h
+        src/xh_elf.h
+        src/xh_elf.c
+        src/xh_jni.c
+        src/xh_log.c
+        src/xh_log.h
+        src/xh_util.c
+        src/xh_util.h
+        src/xh_version.c
+        src/xh_version.h
+        src/xhook.c
+        src/xhook.h
+        )
 
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this

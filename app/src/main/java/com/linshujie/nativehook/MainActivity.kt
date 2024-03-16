@@ -1,5 +1,6 @@
 package com.linshujie.nativehook
 
+import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -16,19 +17,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+        binding.sampleText.text = "hello native hook"
+
+        testNativeHook()
     }
 
-    /**
-     * A native method that is implemented by the 'nativehook' native library,
-     * which is packaged with this application.
-     */
-    external fun stringFromJNI(): String
+    private fun testNativeHook() {
+        XHook.getInstance().init(application)
+        if (!XHook.getInstance().isInited) return
 
-    companion object {
-        // Used to load the 'nativehook' library on application startup.
-        init {
-            System.loadLibrary("nativehook")
-        }
+        XHook.getInstance().enableDebug(true)
+        XHook.getInstance().enableSigSegvProtection(false)
+
+        XHook.getInstance().refresh(false)
     }
 }

@@ -16,7 +16,14 @@ android {
         externalNativeBuild {
             cmake {
                 abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-                cppFlags '-std=c++17', '-fno-exceptions', '-fno-rtti'
+
+                //cppFlags '-std=c++17', '-fno-exceptions', '-fno-rtti' 这段Groovy代码是在CMake的配置块中设置C++编译器标志：
+                //-std=c++17: 指定使用C++17标准进行编译，确保编译器按照该版本的标准语法和特性来处理源代码。
+                //-fno-exceptions: 禁用异常处理。这意味着在编译期间不会生成与异常处理相关的代码，因此在运行时不能抛出或捕获异常。这对于某些嵌入
+                // 式环境或者对性能有严格要求的应用场景可能会有所帮助，因为它可以减少生成代码的大小并提高运行速度。
+                //-fno-rtti: 禁用运行时类型信息（Run-Time Type Information, RTTI）。RTTI允许在运行时检查和识别对象的确切类型，禁用它将无法
+                // 使用typeid操作符和dynamic_cast。这同样有助于减小二进制体积并可能提高性能，但会限制程序在运行时进行类型动态检查的能力。
+                cppFlags '-std=c++17'/*, '-fno-exceptions', '-fno-rtti'*/
             }
         }
     }
