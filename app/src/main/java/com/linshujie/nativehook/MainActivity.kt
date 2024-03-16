@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.linshujie.biz.NativeLib
 import com.linshujie.nativehook.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +30,12 @@ class MainActivity : AppCompatActivity() {
         XHook.getInstance().enableDebug(true)
         XHook.getInstance().enableSigSegvProtection(false)
 
+        //load the target lib
+        val nativeLib = NativeLib()
+        nativeLib.start()
+
         XHook.getInstance().refresh(false)
     }
 }
+
+

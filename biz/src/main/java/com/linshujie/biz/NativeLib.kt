@@ -7,6 +7,7 @@ class NativeLib {
      * which is packaged with this application.
      */
     external fun stringFromJNI(): String
+    external fun start()
 
     companion object {
         // Used to load the 'biz' library on application startup.
