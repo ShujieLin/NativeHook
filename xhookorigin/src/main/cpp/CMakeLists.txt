@@ -29,7 +29,7 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         xhookorigin.cpp
 
         src/queue.h
-        src/tree.h/
+        src/tree.h
         src/xh_core.c
         src/xh_core.h
         src/xh_elf.h

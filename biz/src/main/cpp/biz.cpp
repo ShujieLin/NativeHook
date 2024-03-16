@@ -5,9 +5,10 @@
 #include <pthread.h>
 #include <jni.h>
 #include <android/log.h>
-#include "../../../../xhookorigin/src/main/cpp/src/xhook.h"
 
 #include <stdarg.h>
+#include "../../../../xhookorigin/src/main/cpp/src/xhook.h"
+//#include "../../../../xhookorigin/src/main/cpp/src/xhook.h"
 
 typedef int (*XhookFunction)(int, const char*, const char*, ...);
 
