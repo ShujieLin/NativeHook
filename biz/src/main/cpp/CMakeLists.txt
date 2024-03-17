@@ -5,12 +5,18 @@
 # Sets the minimum CMake version required for this project.
 cmake_minimum_required(VERSION 3.22.1)
 
-set(XHOOK_DIR  ${CMAKE_SOURCE_DIR}/../xhookorgin/src)
+# get the xhookorigin dir trough  ${CMAKE_SOURCE_DIR}
+
+#set(XHOOK_DIR  ${CMAKE_SOURCE_DIR}/../../../../xhookorigin)
+set(XHOOK_DIR  ${CMAKE_SOURCE_DIR}/xhookorigin)
 #print the XHOOK_DIR
 #D:\Codes\Android\Hook\NativeHook\xhookorigin\src\main\cpp\src
 #result:
 #C/C++: XHOOK_DIR:D:/Codes/Android/Hook/NativeHook/biz/src/main/cpp/../xhookorgin/src
 message("XHOOK_DIR:${XHOOK_DIR}")
+message("CMAKE_SOURCE_DIR:${CMAKE_SOURCE_DIR}")
+message("CMAKE_CURRENT_SOURCE_DIR:${CMAKE_CURRENT_SOURCE_DIR}")
+
 # Declares the project name. The project name can be accessed via ${ PROJECT_NAME},
 # Since this is the top level CMakeLists.txt, the project name is also accessible
 # with ${CMAKE_PROJECT_NAME} (both CMake variables are in-sync within the top level
@@ -18,10 +24,10 @@ message("XHOOK_DIR:${XHOOK_DIR}")
 project("biz")
 
 
-# get the location of xhookorgin
+# get the location of xhookorgin  xhookorigin/src/main/cpp/src
 include_directories(
         # get the location of
-    ${XHOOK_DIR}
+    ${XHOOK_DIR}/src/main/cpp/src/
 )
 
 # Creates and names a library, sets it as either STATIC
